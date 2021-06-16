@@ -13,7 +13,7 @@ function HeroCard({ id, superhero, alter_ego, first_appearance, characters }) {
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h5 clasName="card-title">{superhero}</h5>
+            <h5 className="card-title">{superhero}</h5>
             <p className="card-text">{alter_ego}</p>
             {alter_ego !== characters && (
               <p className="card-text">{characters}</p>
