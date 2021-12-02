@@ -1,14 +1,14 @@
 import React, { useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { getHeroesById } from "../../selectors/getHeroById";
-import { Redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function HeroScreen({ history }) {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroesById(heroeId), [heroeId]);
 
   if (!hero) {
-    return <Redirect to="/" />;
+    return <Navigate to="/" />;
   }
 
   const handleReturn = () => {

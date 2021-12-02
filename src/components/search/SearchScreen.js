@@ -1,12 +1,14 @@
 import React, { useMemo } from "react";
 import queryString from "query-string";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import HeroCard from "../heroes/HeroCard";
 import { getHeroesByName } from "../../selectors/getHeroByName";
 
-function SearchScreen({ history }) {
+function SearchScreen() {
   const location = useLocation();
+  const navigate = useNavigate();
+
   const { q = "" } = queryString.parse(location.search);
 
   const [formValues, handleInputChange] = useForm({
@@ -18,7 +20,7 @@ function SearchScreen({ history }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push(`?q=${searchText}`);
+    navigate(`?q=${searchText}`);
   };
 
   return (

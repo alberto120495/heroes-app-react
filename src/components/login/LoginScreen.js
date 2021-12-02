@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router";
 import { AuthContext } from "../../auth/AuthContext";
 import { types } from "../../types/types";
 
-function LoginScreen({ history }) {
+function LoginScreen() {
   const { dispatch } = useContext(AuthContext);
   const { login } = types;
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     //history.push("/");
@@ -21,7 +23,7 @@ function LoginScreen({ history }) {
     };
 
     dispatch(action);
-    history.replace(lastPath); //Replace(Mueve el History del navegador)
+    navigate(lastPath); //Replace(Mueve el History del navegador)
   };
   return (
     <div className="container mt-5">
